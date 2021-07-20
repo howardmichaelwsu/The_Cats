@@ -1,3 +1,72 @@
-#backgroundForhOME {
+#backgroundForHome {
 	background-color: teal;
+}
+#registerform {
+	height: 300px;
+	width: 35%;
+	float: left;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+}
+.register {
+	float: right;
+	padding-left: 5%;
+	margin-bottom: 10%; 
+}
+.FirstNameRegister {
+	margin-bottom: 5%;
+	float: right; 
+}
+.LastNameRegister {
+	margin-bottom: 5%;
+	float: right;
+}
+.EmailRegister {
+	margin-bottom: 5%;
+	float: right; 
+}
+.PasswordRegister {
+	margin-bottom: 5%;
+	float: right; 
+}
+.CPWRegister {
+	margin-bottom: 5%;
+	float: right;  
+}
+.RegisterButton {
+	float: right;
+}
+.registerformlist {
+	margin-top: 5%;
+	justify-content: center;
+	align-items: center;
+	padding-left: 25%;
+}
+#loginform {
+	float: right;
+	height: 300px;
+	width: 25%;
+	float: left;
+	display: inline-block;
+	justify-content: center;
+	align-items: center;
+	margin-left: 15%; 
+}
+.loginH1 {
+	float: right;
+	padding-bottom: 10%;
+	padding-right: 10%;
+}
+.EmailLogin {
+	float: right;
+	margin-bottom: 5%; 
+}
+.PasswordLogin {
+	float: right;
+	margin-bottom: 5%;
+}
+.LoginButton {
+	float: right;
+	margin-left: 25%;
 }

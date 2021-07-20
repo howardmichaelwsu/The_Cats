@@ -10,10 +10,10 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Welcom to the World of Cats</title>
 </head>
-<body id="backgroundForhOME">
+<body id="backgroundForHome">
 	{# header that will lead to the home user page if logged in and to welcome page if not #}
 	<nav class="navbar navbar-expand-lg navbar-lighT bg-light">
-		<a class="navbar-brand" href="index.html">Cats</a>
+		<a class="navbar-brand" href="">Cats</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     		<span class="navbar-toggler-icon"></span>
 		</button>
@@ -47,7 +47,8 @@
     {% if messages %}
     <ul>
       {% for message in messages %} 
-      <li>
+      {# alerting for a more pop up feel using bootstrap #}
+      <li class="alert alert-dark alert-dismissible text-white fade show col-6" role="alert" style="margin-top: 1rem;">
         {{ message }}
       </li>
       {% endfor %}
@@ -56,32 +57,61 @@
   <div>
 {# end of error message #}
 {# register form #}
-  <div>
-    <h1> 
+  <div id="registerform">
+    <h1 class="register"> 
       Register
     </h1>
     <form action="/register" method='post'>
       {% csrf_token %}
-      <div>
-        <label for="first_name">First Name</label>
-        <input type="text" name="first_name" id="first_name">
-        <label for="last_name">Last Name</label>
-        <input type="text" name="last_name" id="last_name">
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email">
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        <label for="confirm">Confirm Password</label>
-        <input type="password" name="confirm_password">
-        <button>Register</button>
+      <div class="registerformlist">
+        <div class="FirstNameRegister">
+          <label for="first_name">First Name</label>
+          <input type="text" name="first_name" id="first_name">
+        </div>
+        <div class="LastNameRegister">
+          <label for="last_name">Last Name</label>
+          <input type="text" name="last_name" id="last_name">
+        </div>
+        <div class="EmailRegister">  
+          <label for="email">Email</label>
+          <input type="text" name="email" id="email">
+        </div>
+        <div class="PasswordRegister"> 
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password">
+        </div>
+        <div class="CPWRegister">
+          <label for="confirm">Confirm Password</label>
+          <input type="password" name="confirm_password">
+        </div>
+        <button class="RegisterButton">Register</button>
       </div>
     </form>
   </div>
+<!-- end of registration form -->
+{# login #}
+  <div id="loginform">
+    <h1 class="loginH1"> Login </h1>
+      <form action="/login" method="post" class="loginformlist">
+        {% csrf_token %}
+        <div class="EmailLogin">
+          <label for="email">Email</label>
+          <input type="email" name="email">
+        </div>
+        <div class="PasswordLogin">
+          <label for="password">Password</label>
+          <input type="password" name="password">
+        </div>
+          <button class="LoginButton">Sign in</button>
+        </div>
+      </form>
+  </div>
+<!-- end of login -->
   {# the footer on page, social media page will have less. If a company can add directors, emails, career list or etc. #}
   <nav class="navbar fixed-bottom justify-content-center navbar-light bg-light">
   <a class="nav-link active" href="#">Active</a>
   <a class="nav-link" href="#">Link</a>
-  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link" href="/logout">Logout</a>
   </nav>
 {# google search bar js #}
 <script async src="https://cse.google.com/cse.js?cx=7ede664843052d259"></script>
@@ -91,5 +121,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 {# bootstrap js #}
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+{# my own javasript file #}
+<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

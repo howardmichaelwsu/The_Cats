@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>REPLACE TITLE</title>
 </head>
-<body id="backgroundForhOME">
+<body id="backgroundForHome">
 	{# header that will lead to the home user page if logged in and to welcome page if not #}
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="index.html">Cats</a>
@@ -46,7 +46,7 @@
   <nav class="navbar fixed-bottom justify-content-center navbar-light bg-light">
   <a class="nav-link active" href="#">Active</a>
   <a class="nav-link" href="#">Link</a>
-  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link" href="/logout">Logout</a>
   </nav>
 {# google search bar js #}
 <script async src="https://cse.google.com/cse.js?cx=7ede664843052d259"></script>
@@ -56,5 +56,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 {# bootstrap js #}
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+{# my own javasript file #}
+<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

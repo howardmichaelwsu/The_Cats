@@ -10,10 +10,10 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Feed</title>
 </head>
-<body id="backgroundForhOME">
+<body id="backgroundForHome">
 	{# header that will lead to the home user page if logged in and to welcome page if not #}
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="index.html">Cats</a>
+		<a class="navbar-brand" href="">Cats</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     		<span class="navbar-toggler-icon"></span>
 		</button>
@@ -40,12 +40,55 @@
      		<div class="gcse-search"></div>
     	</form>
   	</div>
-	</nav>
+  </nav> 
+    <div>
+        <div>
+          {% if messages %}
+            <ul class="messages">
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div> 
+          <div>
+            <form action='/wallPost' method="post" id="commentbox">
+              {% csrf_token %}
+              <label for='wallPost'> What is on your Mind? Cats! </label>
+              <input type="text" name="wallPost" >
+              <button>submit</button>
+            </form>
+          </div>
+        </div>
+      <h3>Other people Cat's</h3> 
+        <div>
+          {% for wallPost in wallPost %}
+            <h3>{{ wallPost.user.first_name }}  {{ wallPost.user.last_name }} says</h3>
+              <p id="wallPost">{{ wallPost.wallPost }}</p>
+              <a href="/likes/{{ wallPost.id }}">Like the Review</a>
+                <P> Number of likes {{ wallPost.likes.count }}
+              {% for comment in wallPost.comment.all %}
+                <h6 class="commentname">{{ comment.user.first_name }} {{ comment.user.last_name }}</h6>
+                <p id="comment">{{ comment.comment}}</p>
+          {% endfor %}
+        </div>
+          <div>
+            <form action="/comment" method="post">
+              {% csrf_token %}
+                <label for="comment"></label>
+                <input type="text" name="comment">
+                <input type="text" name="wallPost_id" value="{{ wallPost.id }}">
+                <button>submit comment</button>
+            </form>
+          </div>
+          {% endfor %} 
+    </div>
   {# the footer on page, social media page will have less. If a company can add directors, emails, career list or etc. #}
   <nav class="navbar fixed-bottom justify-content-center navbar-light bg-light">
   <a class="nav-link active" href="#">Active</a>
   <a class="nav-link" href="#">Link</a>
-  <a class="nav-link" href="#">Link</a>
+  <a class="nav-link" href="/logout">Logout</a>
   </nav>
 {# google search bar js #}
 <script async src="https://cse.google.com/cse.js?cx=7ede664843052d259"></script>
@@ -55,5 +98,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 {# bootstrap js #}
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+{# my own javasript file #}
+<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
